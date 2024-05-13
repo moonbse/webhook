@@ -9,6 +9,7 @@ import (
 )
 
 func TestGetParameter(t *testing.T) {
+	
 	for _, test := range []struct {
 		key    string
 		val    interface{}
