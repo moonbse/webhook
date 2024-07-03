@@ -19,7 +19,8 @@ elif [ "$APP_ID" == "backend" ]; then
     cd $backendPath
 elif [ "$APP_ID" == "blog" ]; then
     cd $blogPath
-elif ["$APP_ID" == "test"]; then
+elif [ "$APP_ID" == "test" ]; then
+    echo "cd $testPath"
     cd $testPath
 else
     echo "Error: Invalid app-id. Valid values are 'frontend', 'backend', or 'blog' or 'test'."
