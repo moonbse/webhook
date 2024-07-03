@@ -1,8 +1,8 @@
 [
     {
       "id": "webhook",
-      "execute-command": "/home/dockerComposeFiles/scripts/launcher.sh",
-      "command-working-directory": "/home/dockerComposeFiles",
+      "execute-command": "/Users/nirbhay11.singh/go_projects/webHookOSS/webhook/scripts/launcher.sh",
+      "command-working-directory": "",
       "response-message": "I got the payload!",
       "response-headers":
       [
@@ -15,35 +15,9 @@
       [
         {
           "source": "payload",
-          "name": "head_commit.id"
-        },
-        {
-          "source": "payload",
-          "name": "pusher.name"
-        },
-        {
-          "source": "payload",
-          "name": "pusher.email"
+          "name": "app-id"
         }
-      ],
-      "trigger-rule":
-      {
-        "and":
-        [
-          {
-            "match":
-            {
-              "type": "payload-hmac-sha1",
-              "secret": "mysecret",
-              "parameter":
-              {
-                "source": "header",
-                "name": "X-Hub-Signature"
-              }
-            }
-          }
-        ]
-      }
+      ]
     }
   ]
   
