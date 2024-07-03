@@ -33,48 +33,42 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+USERNAME = $DOCKER_USERNAME
+PASSWORD = $DOCKER_PASSWORD
 
-# USERNAME = $DOCKER_USERNAME
-# PASSWORD = $DOCKER_PASSWORD
+# docker -version;
+# Log in to Docker Hub, usename and password from environment, later more robust solution 
+echo "Logging in to Docker Hub...";
+docker login -u "$USERNAME" -p "$PASSWORD";
 
-# # docker -version;
-# # Log in to Docker Hub, usename and password from environment, later more robust solution 
-# echo "Logging in to Docker Hub...";
-# docker login -u "$USERNAME" -p "$PASSWORD";
+if [ $? -ne 0 ]; then
+    echo "Error: Docker login failed"
+    exit 1
+fi
 
-# if [ $? -ne 0 ]; then
-#     echo "Error: Docker login failed"
-#     exit 1
-# fi
+# # Run cleanup commands
+# # Example: Remove old containers and images
+echo "Running cleanup commands..."
+docker compose rm -f
 
-# # # Run cleanup commands
-# # # Example: Remove old containers and images
-# echo "Running cleanup commands..."
-# docker compose rm -f
+# # Check if cleanup commands were successful
+if [ $? -ne 0 ]; then
+    echo "Error: Cleanup commands failed"
+    exit 1
+fi
 
+echo "Pulling fresh images..."
+docker compose pull
 
-# # # Check if cleanup commands were successful
-# if [ $? -ne 0 ]; then
-#     echo "Error: Cleanup commands failed"
-#     exit 1
-# fi
-
-# echo "Pulling fresh images..."
-# docker compose pull
-
-# if [ $? -ne 0 ]; then
-#     echo "Error: Pulling fresh images"
-#     exit 1
-# fi
-
-
-# read the argument passed, if ( frontend, backend, blog )
-# change the directory and run 
-
-
+if [ $? -ne 0 ]; then
+    echo "Error: Pulling fresh images"
+    exit 1
+fi
 
 echo "Running docker compose up..."
 docker compose up -d ;
+
+
 
 
 # Check if docker-compose up was successful
