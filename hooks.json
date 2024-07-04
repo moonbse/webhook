@@ -1,7 +1,7 @@
 [
     {
       "id": "webhook",
-      "execute-command": "/Users/nirbhay11.singh/go_projects/webHookOSS/webhook/scripts/launcher.sh",
+      "execute-command": "/home/scripts/launcher.sh",
       "command-working-directory": "",
       "response-message": "I got the payload!",
       "response-headers":
