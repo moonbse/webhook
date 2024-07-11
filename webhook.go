@@ -360,6 +360,8 @@ func hookHandler(w http.ResponseWriter, r *http.Request) {
 
 	// set contentType to IncomingPayloadContentType or header value
 	req.ContentType = r.Header.Get("Content-Type")
+
+	log.Println("content type :: ", req.ContentType);
 	if len(matchedHook.IncomingPayloadContentType) != 0 {
 		req.ContentType = matchedHook.IncomingPayloadContentType
 	}
