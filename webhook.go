@@ -88,6 +88,16 @@ func main() {
 
 	flag.Parse()
 
+	// secrets are loaded, environment variables are only set for session, source them from bashrc
+
+	// home := os.Getenv("WEBHOOK_SECRET")
+
+	// if home == "" {
+	//     fmt.Println("The HOME environment variable is not set.")
+	// } else {
+	//     fmt.Printf("The HOME environment variable is set to: %s\n", home)
+	// }
+
 	if *justDisplayVersion {
 		fmt.Println("webhook version " + version)
 		os.Exit(0)
@@ -359,17 +369,17 @@ func hookHandler(w http.ResponseWriter, r *http.Request) {
 	var err error
 
 	// Print all headers received in the request
-	log.Println("Received headers:")
-	for name, values := range r.Header {
-		for _, value := range values {
-			log.Printf("%s: %s\n", name, value)
-		}
-	}
+	// log.Println("Received headers:")
+	// for name, values := range r.Header {
+	// 	for _, value := range values {
+	// 		log.Printf("%s: %s\n", name, value)
+	// 	}
+	// }
 
 	// set contentType to IncomingPayloadContentType or header value
 	req.ContentType = r.Header.Get("Content-Type")
 
-	log.Println("content type :: ", req.ContentType);
+	log.Println("content type :: ", req.ContentType)
 	if len(matchedHook.IncomingPayloadContentType) != 0 {
 		req.ContentType = matchedHook.IncomingPayloadContentType
 	}
