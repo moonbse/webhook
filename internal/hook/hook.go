@@ -34,7 +34,7 @@ const (
 	SourceHeader         string = "header"
 	SourceQuery          string = "url"
 	SourceQueryAlias     string = "query"
-	SourcePayload        string = "payload"
+    SourcePayload        string = "payload"
 	SourceRawRequestBody string = "raw-request-body"
 	SourceRequest        string = "request"
 	SourceString         string = "string"
