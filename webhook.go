@@ -368,13 +368,7 @@ func hookHandler(w http.ResponseWriter, r *http.Request) {
 
 	var err error
 
-	// Print all headers received in the request
-	// log.Println("Received headers:")
-	// for name, values := range r.Header {
-	// 	for _, value := range values {
-	// 		log.Printf("%s: %s\n", name, value)
-	// 	}
-	// }
+	
 
 	// set contentType to IncomingPayloadContentType or header value
 	req.ContentType = r.Header.Get("Content-Type")
