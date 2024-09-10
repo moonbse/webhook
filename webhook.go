@@ -88,14 +88,16 @@ func main() {
 
 	flag.Parse()
 
+	// log.Println("Secret" + os.Getenv("WEBHOOK_SECRET"));
+
 	// secrets are loaded, environment variables are only set for session, source them from bashrc
 
-	// home := os.Getenv("WEBHOOK_SECRET")
+	// secret := os.Getenv("WEBHOOK_SECRET")
 
-	// if home == "" {
-	//     fmt.Println("The HOME environment variable is not set.")
+	// if secret == "" {
+	//     fmt.Println("The SECRET environment variable is not set.")
 	// } else {
-	//     fmt.Printf("The HOME environment variable is set to: %s\n", home)
+	//     fmt.Printf("The SECRET environment variable is set to: %s\n", secret)
 	// }
 
 	if *justDisplayVersion {

@@ -934,6 +934,7 @@ func (r MatchRule) Evaluate(req *Request) (bool, error) {
 			log.Print(`warn: use of deprecated option payload-hash-sha256: use payload-hmac-sha256 instead`)
 			fallthrough
 		case MatchHMACSHA256:
+			// log.Print("Secret for signature verification: " + r.Secret);
 			_, err := CheckPayloadSignature256(req.Body, r.Secret, arg)
 			return err == nil, err
 		case MatchHashSHA512:
